@@ -1,0 +1,23 @@
+spec:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-go-todo-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: react-go-todo
+  template:
+    metadata:
+      labels:
+        app: react-go-todo
+    spec:
+      containers:
+      - name: react-go-todo
+        image: chrishorton8/react-go-todo:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 80
+
